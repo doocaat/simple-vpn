@@ -2,7 +2,7 @@
 // Show our version.
 //
 
-package main
+package vpn
 
 import (
 	"context"

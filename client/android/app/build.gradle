@@ -53,7 +53,12 @@ android {
 flutter {
     source '../..'
 }
-
+repositories{
+    flatDir{
+        dirs 'src/main/libs'
+    }
+}
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api(name:'vpn', ext:'aar')
 }

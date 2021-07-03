@@ -1,13 +1,13 @@
 // cmd_client.go contains the core of the VPN-client
 
-package main
+package vpn
 
 import (
 	"context"
 	"flag"
 	"fmt"
+	vpn2 "github.com/doocaat/simple-vpn/client"
 	"github.com/doocaat/simple-vpn/config"
-	"github.com/doocaat/simple-vpn/shared"
 	"github.com/google/subcommands"
 )
 
@@ -58,7 +58,7 @@ func (p *clientCmd) Execute(_ context.Context, f *flag.FlagSet, _ ...interface{}
 		return subcommands.ExitFailure
 	}
 
-	vpn := shared.New(
+	vpn := vpn2.NewVpnClient(
 		p.config.Get("vpn"),
 		p.config.Get("key"),
 		p.config.Get("name"),

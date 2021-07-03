@@ -2,7 +2,7 @@
 // Entry-point for the application.
 //
 
-package main
+package vpn
 
 import (
 	"context"

@@ -1,6 +1,6 @@
 // cmd_server.go contains the core of the VPN-server
 
-package main
+package vpn
 
 import (
 	"context"
@@ -14,10 +14,10 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/doocaat/simple-vpn/config"
+	"github.com/doocaat/simple-vpn/shared"
 	"github.com/google/subcommands"
 	"github.com/gorilla/websocket"
-	"github.com/skx/simple-vpn/config"
-	"github.com/skx/simple-vpn/shared"
 	"github.com/songgao/water"
 )
 

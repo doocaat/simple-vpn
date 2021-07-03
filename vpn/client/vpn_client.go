@@ -1,10 +1,11 @@
-package shared
+package client
 
 import (
 	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/doocaat/simple-vpn/shared"
 	"github.com/gorilla/websocket"
 	"github.com/songgao/water"
 	"log"
@@ -12,7 +13,7 @@ import (
 	"os"
 	"os/exec"
 	"strconv"
-	strings "strings"
+	"strings"
 )
 
 type VpnClient struct {
@@ -23,7 +24,7 @@ type VpnClient struct {
 	up       string
 }
 
-func New(vpn string, key string, name string, peers string, up string) *VpnClient {
+func NewVpnClient(vpn string, key string, name string, peers string, up string) *VpnClient {
 
 	return &VpnClient{endPoint: vpn, key: key, name: name, peers: peers, up: up}
 }
@@ -164,7 +165,7 @@ func (vpn *VpnClient) Start() error {
 	//
 	// Setup command-handlers for adding routes, etc.
 	//
-	socket := MakeSocket("0", conn, nil, nil)
+	socket := shared.MakeSocket("0", conn, nil, nil)
 
 	//
 	// Init is the function which is received when we connect.
